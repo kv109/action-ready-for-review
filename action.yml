@@ -1,0 +1,5 @@
+name: 'Ready to review - Slack notifier'
+description: 'Notifies you when a pull request is ready for review'
+runs:
+  using: 'node12'
+  main: 'index.js'
