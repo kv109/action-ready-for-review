@@ -8,6 +8,7 @@
 
 1. Generate your Slack webhook. You can do it [here](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks).
 1. Add created webhook as a secret named `SLACK_WEBHOOK` using GitHub Action's Secret. See your project Settings -> Secrets.
+1. Create `.github/workflows/main.yml` and put there content like the ones from [examples](https://github.com/kv109/action-ready-to-review#example-usage).
 
 ### Example usage
 
