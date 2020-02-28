@@ -2,7 +2,7 @@ const Core = require('@actions/core');
 const Github = require('@actions/github');
 const Slack = require('node-slack');
 
-const DefaultFormat = `:rocket: New PR ready to review! :rocket:\nTitle: *{ pull_request.title }*\nAuthor: { pull_request.user.login }\nURL: { pull_request.html_url }`;
+const DefaultFormat = `:rocket: New PR ready for review! :rocket:\nTitle: *{ pull_request.title }*\nAuthor: { pull_request.user.login }\nURL: { pull_request.html_url }`;
 
 try {
     e = process.env;
@@ -11,7 +11,7 @@ try {
         format: e.FORMAT || DefaultFormat,
         hookUrl: e.SLACK_WEBHOOK,
         ignoreDrafts: e.IGNORE_DRAFTS || true,
-        username: e.USERNAME || 'ReadyToReviewBot'
+        username: e.USERNAME || 'ReadyForReviewBot'
     };
 
     if (!config.channel) {

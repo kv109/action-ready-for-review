@@ -1,14 +1,14 @@
-# ReadyToReview - Slack Notifier
+# ReadyForReview - Slack Notifier
 
-**ReadyToReview** notifies you when a pull request is ready for review, i.e. when
+**ReadyForReview** notifies you when a pull request is ready for review, i.e. when
 - a non-draft PR is opened or
-- a draft PR is ready to review.
+- a draft PR is ready for review.
 
 ### Setup
 
 1. Generate your Slack webhook. You can do it [here](https://slack.com/apps/A0F7XDUAZ-incoming-webhooks).
 1. Add created webhook as a secret named `SLACK_WEBHOOK` using GitHub Action's Secret. See your project Settings -> Secrets.
-1. Create `.github/workflows/main.yml` and put there content like the ones from [examples](https://github.com/kv109/action-ready-to-review#example-usage).
+1. Create `.github/workflows/main.yml` and put there content like the ones from [examples](https://github.com/kv109/action-ready-for-review#example-usage).
 
 Don't forget about enabling local and third party actions for your repository in your project Settings -> Actions!
 
@@ -26,7 +26,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Slack Notification
-      uses: kv109/action-ready-to-review@0.1
+      uses: kv109/action-ready-for-review@0.1
       env:
         SLACK_CHANNEL: your-slack-channel           # required
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} # required
@@ -44,7 +44,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Slack Notification
-      uses: kv109/action-ready-to-review@0.1
+      uses: kv109/action-ready-for-review@0.1
       env:
         FORMAT: | # Format is fully customizable.
           My custom message format! :smile:
