@@ -2,8 +2,9 @@ const Core = require('@actions/core');
 const Github = require('@actions/github');
 const Slack = require('node-slack');
 
-const DefaultPRApprovedFormat = `Pull request *{ pull_request.title }* was approved by { review.user.login } :heavy_check_mark:`;
-const DefaultPRChangesRequestedFormat = `Pull request *{ pull_request.title }* was rejected by { review.user.login } :cry:`;
+const DefaultPRApprovedFormat = `*{ pull_request.title }* was approved by { review.user.login } :heavy_check_mark:`;
+const DefaultPRChangesRequestedFormat = `*{ pull_request.title }* was rejected by { review.user.login } :cry:`;
+const DefaultPRCommentedFormat = `*{ pull_request.title }* was commented by { review.user.login } :writing_hand:`;
 const DefaultPRReadyForReviewFormat = `:rocket: New PR ready for review! :rocket:\nTitle: *{ pull_request.title }*\nAuthor: { pull_request.user.login }\nURL: { pull_request.html_url }`;
 
 const fillTemplate = (payload, template) => {
@@ -37,6 +38,7 @@ try {
         hookUrl: e.SLACK_WEBHOOK,
         ignoreDrafts: e.IGNORE_DRAFTS || true,
         pr_approved_format: e.PR_APPROVED_FORMAT || DefaultPRApprovedFormat,
+        pr_commented_format: e.PR_COMMENTED_FORMAT || DefaultPRCommentedFormat,
         pr_ready_for_review_format: e.PR_READY_FOR_REVIEW_FORMAT || DefaultPRReadyForReviewFormat,
         pr_rejected_format: e.PR_REJECTED_FORMAT || DefaultPRChangesRequestedFormat,
         username: e.USERNAME || 'ReadyForReviewBot'
