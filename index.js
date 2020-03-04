@@ -63,11 +63,13 @@ try {
     const slack = new Slack(config.hookUrl);
 
     if (review) {
-        if (payload.review.state == "approved") {
-            message = fillTemplate(payload, config.pr_approved_format);
-        } else if (payload.review.state == "changes_requested") {
-            message = fillTemplate(payload, config.pr_rejected_format);
-        }
+        let formats = {};
+
+        formats.approved = config.pr_approved_format;
+        formats.commented = config.pr_commented_format;
+        formats.changes_requested = config.pr_rejected_format;
+
+        message = fillTemplate(payload, formats[payload.review.state]);
     } else {
         if (pr.draft && config.ignoreDrafts === true) {
             return
