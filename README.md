@@ -18,6 +18,8 @@ Don't forget about enabling local and third party actions for your repository in
 on: 
   pull_request:
     types: [opened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
 name: Notify about PR ready for review
 jobs:
   slackNotification:
@@ -36,6 +38,8 @@ jobs:
 on: 
   pull_request:
     types: [opened, ready_for_review]
+  pull_request_review:
+    types: [submitted]
 name: Notify about PR ready for review
 jobs:
   slackNotification:
