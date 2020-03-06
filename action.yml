@@ -1,5 +1,9 @@
 name: 'Ready for review - Slack notifier'
-description: 'Notifies you when a pull request is ready for review'
+description: 'Notifies you when a pull request is ready for review, accepted or rejected.'
+branding:
+  color: yellow
+  icon: message-square
+  
 runs:
   using: 'node12'
   main: 'index.js'
