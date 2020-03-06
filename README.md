@@ -46,12 +46,16 @@ jobs:
     - name: Slack Notification
       uses: kv109/action-ready-for-review@0.1
       env:
-        FORMAT: | # Format is fully customizable.
-          My custom message format! :smile:
+        IGNORE_DRAFTS: false # Ignore draft pull requests. Default: true.
+        PR_APPROVED_FORMAT: | # Format is fully customizable.
+          *{ pull_request.title }* was approved by { review.user.login } :heavy_check_mark:
+        PR_READY_FOR_REVIEW_FORMAT: |
+          New PR! :smile:
           Title: *{ pull_request.title }*
           Author: { pull_request.user.login }
           URL: { pull_request.html_url }
-        IGNORE_DRAFTS: false # Notify also about drafts. Default: true.
+        PR_REJECTED_FORMAT: |
+          *{ pull_request.title }* was rejected by { review.user.login } :cry:
         SLACK_CHANNEL: your-slack-channel
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         USERNAME: Your username
