@@ -1,8 +1,11 @@
 # ReadyForReview - Slack Notifier
 
-**ReadyForReview** notifies you when a pull request is ready for review, i.e. when
-- a non-draft PR is opened or
-- a draft PR is ready for review.
+**ReadyForReview** notifies you 
+- when a pull request is ready for review (i.e. when a non-draft PR is opened or a draft PR is ready for review),
+- when a pull request is accepted and
+- when a pull request is rejected.
+
+![image](https://user-images.githubusercontent.com/399968/76140067-e8f44d00-6056-11ea-98f5-629903599bf4.png)
 
 ### Setup
 
