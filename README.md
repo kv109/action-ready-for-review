@@ -29,9 +29,9 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Slack Notification
-      uses: kv109/action-ready-for-review@0.1
+      uses: kv109/action-ready-for-review@0.2
       env:
         SLACK_CHANNEL: your-slack-channel           # required
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} # required
@@ -49,9 +49,9 @@ jobs:
     name: Slack Notification
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Slack Notification
-      uses: kv109/action-ready-for-review@0.1
+      uses: kv109/action-ready-for-review@0.2
       env:
         IGNORE_DRAFTS: false # Ignore draft pull requests. Default: true.
         PR_APPROVED_FORMAT: | # Format is fully customizable.
